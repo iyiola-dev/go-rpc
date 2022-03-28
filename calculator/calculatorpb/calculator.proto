@@ -1,0 +1,20 @@
+syntax = "proto3";
+package  calculator;
+option  go_package = "calculator/calculatorpb";
+
+service CalculatorService{
+  rpc Calculator(CalculatorRequest) returns (CalculatorResponse);
+}
+
+message Calculator{
+  int32 first_number =1;
+  int32  last_number =2;
+}
+message  CalculatorRequest{
+  Calculator calculator = 1;
+}
+
+message  CalculatorResponse{
+  //the number has to be an int always not a double or a float
+  int32 sum = 1;
+}
